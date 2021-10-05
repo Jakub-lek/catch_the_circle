@@ -1,0 +1,8 @@
+<div class="playground-container">
+    <div class="playground-desk-container" (click)="miss()">
+        <app-playground-desk [sidebarWidth]="sidebarWidth" (scoreEvent)="hit()" (lifesEvent)="miss()"></app-playground-desk>
+    </div>
+    <div #sidebar class="playground-sidepanel-container">
+        <app-playground-sidepanel [lifes]="lifes" [score]="score"></app-playground-sidepanel>
+    </div>
+</div>

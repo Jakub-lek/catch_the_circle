@@ -1,0 +1,16 @@
+.sidepanel-content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .sidepanel-content-stats {
+        display: flex;
+        justify-content:space-between;
+        padding: 10px;
+    }
+
+    .sidepanel-content-end-button {
+        padding: 10px;
+    }
+}

@@ -1,0 +1,3 @@
+<ng-container *ngIf="shape$ | async as shapeObject">
+    <div [ngStyle]="shapeObject.shape" (click)="hit(shapeObject.name); $event.stopPropagation()"></div>
+</ng-container>

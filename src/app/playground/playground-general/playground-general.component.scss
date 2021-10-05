@@ -1,0 +1,18 @@
+.playground-container {
+    display: flex;
+    height: 100%;
+
+    .playground-desk-container {
+        flex: 80%;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .playground-sidepanel-container {
+        height: 100%;
+        flex: 20%;
+        background-color: #E8E8E8;
+        border-radius: 10px 0 0 10px;
+        box-shadow: -7px 0 5px #aaaaaa;
+    }
+}
