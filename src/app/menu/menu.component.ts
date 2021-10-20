@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { ShapeGeneratorService } from './../service/shape-generator.service';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,9 +9,16 @@ import { Router } from '@angular/router';
 })
 export class MenuComponent implements OnInit {
 
-  constructor(private readonly router: Router) { }
+  circles: any[] = [];
+
+  constructor(private readonly router: Router, private readonly shapeGenerator: ShapeGeneratorService) {
+    shapeGenerator.setWindowWidth(0);
+  }
 
   ngOnInit() {
+    for (let i = 0; i < 85; i++) {
+      this.circles.push(this.shapeGenerator.circle);
+    }
   }
 
   onStartClick() {
@@ -21,4 +29,8 @@ export class MenuComponent implements OnInit {
     
   }
 
+  @HostListener('window:resize', ['$event'])
+    onResize() {
+      window.location.reload();
+  }
 }

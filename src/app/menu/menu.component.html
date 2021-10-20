@@ -1,2 +1,12 @@
-<button mat-raised-button color="primary" (click)="onStartClick()">Start</button>
-<button mat-raised-button color="primary" (click)="showScore()">Score</button>
+<div class="menu-container">
+    <h1 class="menu-title">CATCH THE CIRCLE</h1>
+    <div class="menu-background">
+        <div *ngFor="let circle of circles" [ngStyle]="circle"></div>
+    </div>
+    <div class="menu-buttons-container">
+        <button class="menu-button" mat-raised-button color="primary" (click)="onStartClick()">Start</button>
+        <button class="mt-4 menu-button" mat-raised-button color="primary" (click)="showScore()">Score</button>
+        <button class="mt-4 menu-button" mat-raised-button color="primary">Rules</button>
+        <button class="mt-4 menu-button" mat-raised-button color="primary">End</button>
+    </div>
+</div>

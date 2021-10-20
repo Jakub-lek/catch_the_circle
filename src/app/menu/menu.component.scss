@@ -1,0 +1,32 @@
+.menu-container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+    .menu-title {
+        font-family: Orbitron;
+        font-size: 48px;
+        font-weight: 600;
+        z-index: 1;
+    }
+
+    .menu-background {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+    }
+
+    .menu-buttons-container {
+        display: flex;
+        flex-direction: column;
+
+        .menu-button {
+            height: 60px;
+            width: 100px;
+            background-color: black;
+        }
+    }
+}

@@ -1,12 +1,15 @@
+import { Injectable } from "@angular/core";
 
+@Injectable({
+    providedIn: 'root'
+})
 export class ShapeGeneratorService {
 
     private windowHeight = 0;
     private windowWidth = 0
 
-    constructor(sidebarWidth: number) {
+    constructor() {
         this.windowHeight = window.innerHeight;
-        this.windowWidth = window.innerWidth - sidebarWidth;
     }
 
     setWindowWidth(sidebarWidth: number) {
@@ -14,6 +17,7 @@ export class ShapeGeneratorService {
     }
 
     get circle() {
+        console.log(this.windowHeight, this.windowWidth);
         const randomSize = this.randomIntFromInterval(20, 80);
         const randomTop = this.randomIntFromInterval(randomSize + 5, this.windowHeight - randomSize - 5);
         const randomLeft = this.randomIntFromInterval(randomSize + 5, this.windowWidth - randomSize - 5);
