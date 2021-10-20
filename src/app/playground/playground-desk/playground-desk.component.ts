@@ -10,8 +10,6 @@ import { Input } from '@angular/core';
 })
 export class PlaygroundDeskComponent implements OnInit, OnChanges {
 
-  shapeGenerator: ShapeGeneratorService
-
   shape$ = new Subject<{name: string, shape: any}>();
   shapePosition$ = new Subject();
 
@@ -20,8 +18,7 @@ export class PlaygroundDeskComponent implements OnInit, OnChanges {
   @Output() lifesEvent = new EventEmitter();
   @Output() scoreEvent = new EventEmitter();
 
-  constructor() {
-    this.shapeGenerator = new ShapeGeneratorService(this.sidebarWidth);
+  constructor(private readonly shapeGenerator: ShapeGeneratorService) {
   }
 
   ngOnInit() {
