@@ -1,0 +1,6 @@
+{
+    "/api": {
+      "target": "https://catch-the-circle-16433-default-rtdb.europe-west1.firebasedatabase.app/",
+      "secure": false
+    }
+  }

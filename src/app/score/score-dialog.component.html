@@ -1,0 +1,16 @@
+<h1 mat-dialog-title class="score-title">The 5 of the best circle catchers</h1>
+<hr>
+<div mat-dialog-content class="score-content-container">
+    <div class="score-content" *ngFor="let score of scores; let i = index">
+        <div class="score-content-name">
+            {{score.name}}
+        </div>
+        <div class="score-content-value">
+            <span>{{score.value}}</span>
+            <span class="ml-4" [ngStyle]="circles[i]"></span>
+        </div>
+    </div>
+</div>
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close>Close</button>
+</div>
