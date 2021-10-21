@@ -1,0 +1,32 @@
+.score-title {
+    font-family: Orbitron;
+    font-size: 28px;
+}
+
+.horizontal-delimiter {
+    border-bottom: 2px solid black;
+    width: 100%
+}
+
+.score-content-container {
+    display: flex;
+    flex-direction: column;
+    font-size: 22px;
+    font-family: Orbitron;
+
+    .score-content {
+        display: flex;
+        justify-content: space-around;
+        padding: 16px;
+
+        .score-content-name {
+            flex: 1;
+        }
+
+        .score-content-value {
+            display: flex;
+            font-weight: bold;
+            align-items: center;
+        }
+    }
+}

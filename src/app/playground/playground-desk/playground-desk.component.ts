@@ -30,7 +30,7 @@ export class PlaygroundDeskComponent implements OnInit, OnChanges {
         case 1:
         case 2:
         case 3: {
-          this.shape$.next({name: 'circle', shape: this.shapeGenerator.circle})
+          this.shape$.next({name: 'circle', shape: this.shapeGenerator.getCircle()})
           break;
         }
         case 4:

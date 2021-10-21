@@ -12,6 +12,8 @@ import { PlaygroundSidepanelComponent } from './playground/playground-sidepanel/
 import { PlaygroundDeskComponent } from './playground/playground-desk/playground-desk.component';
 import { GameOverComponent } from './game-over/game-over.component';
 import { HttpClientModule } from '@angular/common/http';
+import {MatDialogModule} from '@angular/material/dialog';
+import { ScoreDialogComponent } from './score/score-dialog.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import { HttpClientModule } from '@angular/common/http';
     PlaygroundGeneralComponent,
     PlaygroundSidepanelComponent,
     PlaygroundDeskComponent,
-    GameOverComponent
+    GameOverComponent,
+    ScoreDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -28,6 +31,7 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule,
     NoopAnimationsModule,
     MatButtonModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

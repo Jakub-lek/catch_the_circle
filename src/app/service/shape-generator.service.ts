@@ -16,20 +16,28 @@ export class ShapeGeneratorService {
         this.windowWidth = window.innerWidth - sidebarWidth;
     }
 
-    get circle() {
-        console.log(this.windowHeight, this.windowWidth);
-        const randomSize = this.randomIntFromInterval(20, 80);
-        const randomTop = this.randomIntFromInterval(randomSize + 5, this.windowHeight - randomSize - 5);
-        const randomLeft = this.randomIntFromInterval(randomSize + 5, this.windowWidth - randomSize - 5);
-        return {
-            'height': `${randomSize}px`,
-            'width': `${randomSize}px`,
+    getCircle(min = 20, max = 80, positioning = true) {
+        const size = this.randomIntFromInterval(min, max);
+        const circle = {
+            'height': `${size}px`,
+            'width': `${size}px`,
             'background-color': this.getRandomColor(),
             'border-radius': '50%',
+        };
+        if (positioning) {
+            Object.assign(circle, this.getPosition(size));
+        }
+        return circle
+    }
+
+    getPosition(size: number) {
+        const randomTop = this.randomIntFromInterval(size + 5, this.windowHeight - size - 5);
+        const randomLeft = this.randomIntFromInterval(size + 5, this.windowWidth - size - 5);
+        return {
             'position': 'absolute',
             'top': `${randomTop}px`,
             'left': `${randomLeft}px`
-        };
+        }
     }
 
     get square() {
