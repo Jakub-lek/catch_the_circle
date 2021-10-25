@@ -1,6 +1,8 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { FirebaseService } from './../service/firebase.service';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { take } from 'rxjs/operators';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-game-over',
@@ -10,8 +12,12 @@ import { take } from 'rxjs/operators';
 export class GameOverComponent implements OnInit {
 
   score: any;
+  nameFc: FormControl;
+  saveDisabled = false;
 
-  constructor(private readonly route: ActivatedRoute, private readonly router: Router) { }
+  constructor(private readonly route: ActivatedRoute, private readonly router: Router, private readonly firebase: FirebaseService) {
+    this.nameFc = new FormControl('');
+  }
 
   ngOnInit() {
     this.route.queryParams.pipe(take(1)).subscribe(params => {
@@ -25,5 +31,9 @@ export class GameOverComponent implements OnInit {
 
   saveScore() {
     
+    this.saveDisabled = true;
+    this.firebase.saveScore({name: this.nameFc.value, value: this.score}).subscribe(() => {
+      this.router.navigate(['/']);
+    });
   }
 }
