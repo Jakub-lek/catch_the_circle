@@ -1,0 +1,10 @@
+{
+  "hosting": {
+    "public": "dist/catch-the-circle",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}
