@@ -1,9 +1,11 @@
-import { ScoreDialogComponent } from './../score/score-dialog.component';
+import { ScoreData, ScoreDialogComponent } from './../score/score-dialog.component';
 import { FirebaseService } from './../service/firebase.service';
 import { ShapeGeneratorService } from './../service/shape-generator.service';
 import { Component, HostListener, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
+import { AngularFireDatabase, AngularFireList } from '@angular/fire/compat/database';
+import { map, take } from 'rxjs/operators';
 
 @Component({
   selector: 'app-menu',
@@ -14,7 +16,7 @@ export class MenuComponent implements OnInit {
 
   circles: any[] = [];
 
-  constructor(private readonly router: Router, private readonly shapeGenerator: ShapeGeneratorService, private readonly firebase: FirebaseService, public dialog: MatDialog) {
+  constructor(private readonly router: Router, private readonly shapeGenerator: ShapeGeneratorService, private readonly firebaseService: FirebaseService, public dialog: MatDialog) {
     shapeGenerator.setWindowWidth(0);
   }
 
@@ -29,11 +31,11 @@ export class MenuComponent implements OnInit {
   }
 
   showScore() {
-    this.firebase.getScore().subscribe(score => {
+    this.firebaseService.getTopFive().subscribe(score => {
       this.dialog.open(ScoreDialogComponent, {
         data: score,
         height: 'min-content'
-      });
+      })
     });
   }
 

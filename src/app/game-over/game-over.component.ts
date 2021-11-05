@@ -30,9 +30,8 @@ export class GameOverComponent implements OnInit {
   }
 
   saveScore() {
-    
     this.saveDisabled = true;
-    this.firebase.saveScore({name: this.nameFc.value, value: this.score}).subscribe(() => {
+    this.firebase.create({name: this.nameFc.value, score: this.score}).then(() => {
       this.router.navigate(['/']);
     });
   }

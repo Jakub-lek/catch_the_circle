@@ -4,14 +4,15 @@
 
 export const environment = {
   production: false,
-  firebase: {
+  firebaseConfig: {
     apiKey: "AIzaSyADgaDtY7EvVDLjYsK-vYYhoYdSYINPCcM",
     authDomain: "catch-the-circle-16433.firebaseapp.com",
+    databaseURL: "https://catch-the-circle-16433-default-rtdb.europe-west1.firebasedatabase.app",
     projectId: "catch-the-circle-16433",
     storageBucket: "catch-the-circle-16433.appspot.com",
     messagingSenderId: "998364262394",
     appId: "1:998364262394:web:0567a1e8e577c00c40fe43"
-    }
+  }
 };
 
 /*
